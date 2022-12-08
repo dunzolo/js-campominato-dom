@@ -5,6 +5,8 @@ function createNewGame(){
     let cellsNumber;
     let cellsRow;
 
+    let arrayBombs = [];
+
     if(difficulty.value == 'Facile'){
         cellsNumber = 100;
         cellsRow = 10;
@@ -17,6 +19,9 @@ function createNewGame(){
         cellsNumber = 49;
         cellsRow = 7;
     }
+
+    arrayBombs = createBombsArray(1, cellsNumber);
+    console.log(arrayBombs);
 
     generateGrid(cellsNumber, cellsRow);
 }
@@ -38,6 +43,7 @@ function generateGrid(cellsNumber, cellsRow){
         grid.appendChild(square);
 
         square.addEventListener('click', function(){
+            //al quadrato cliccato aggiungo la classe
             this.classList.add('checked');
         })
     }
@@ -45,6 +51,24 @@ function generateGrid(cellsNumber, cellsRow){
     //aggiungo al container la griglia generata
     container.appendChild(grid);
 
+}
+
+//creo array di numeri casuali
+function createBombsArray(min, max){
+    let i = 0;
+    let arrayBombs = [];
+
+    while(i < 16){
+        let number = Math.floor(Math.random() * (max - min + 1) + min);
+
+        // aggiungo numeri univoci
+        if(!(arrayBombs.includes(number))){
+            arrayBombs.push(number);
+            i++;
+        }
+    }
+
+    return arrayBombs;
 }
 
 //creo il singolo quadrato
