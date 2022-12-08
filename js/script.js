@@ -129,6 +129,7 @@ function generateSquare(num, cellsRow, arrayBombs){
 function revealBombs(totalBombs){
     for(let i = 0; i < totalBombs.length; i++){
         totalBombs[i].classList.add('checked-bomb');
+        totalBombs[i].innerHTML = '<img src="./img/bomb-png-transparent-background-19.png"></img>';
     }
 }
 

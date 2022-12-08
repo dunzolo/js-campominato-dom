@@ -72,6 +72,10 @@ main{
     justify-content: center;
 }
 
+.square img{
+    width: 80%;
+}
+
 .checked{
     background-color: aqua;
 }
