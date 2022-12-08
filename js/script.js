@@ -21,7 +21,7 @@ function createNewGame(){
     }
 
     arrayBombs = createBombsArray(1, cellsNumber);
-    console.log(arrayBombs);
+    console.log(arrayBombs.sort(function(a, b){return a-b}));
 
     generateGrid(arrayBombs, cellsNumber, cellsRow);
 }
@@ -36,8 +36,9 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
 
     grid.classList.add('grid');
 
-    //inizializzo a -1 per conteggio celle corrette
-    let count = -1;
+    let count = 0;
+
+    let square_save = cellsNumber - arrayBombs.length;
     
     //creo array delle celle dove è presente la bomba
     const totalBombs = document.getElementsByName('bomb');
@@ -51,8 +52,6 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
         square.addEventListener('click', function(){
             //al quadrato cliccato aggiungo la classe
             this.classList.add('checked');
-            
-            count++;
 
             //controllo se il numero della cella è presente nell'array delle bombe
             if(arrayBombs.includes(parseInt(this.innerText))){
@@ -60,13 +59,23 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
 
                 //blocco eventi per altre celle nella griglie
                 grid.classList.add('event-none');
-
+                
                 alert(`Hai perso! Hai totalizzato ${count} punti!`);
 
                 revealBombs(totalBombs);
             }
+            
+            count++;
+            
+            if(count == square_save){
+                grid.classList.add('event-none');
+                alert('Hai vinto!');
+            }
         })
+
+        
     }
+
 
     //aggiungo al container la griglia generata
     container.appendChild(grid);
