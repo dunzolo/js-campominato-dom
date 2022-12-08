@@ -36,8 +36,14 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
 
     grid.classList.add('grid');
 
+    //inizializzo a -1 per conteggio celle corrette
+    let count = -1;
+    
+    //creo array delle celle dove è presente la bomba
+    const totalBombs = document.getElementsByName('bomb');
+    
     for(let i = 1; i <= cellsNumber; i++){
-        const square = generateSquare(i, cellsRow);
+        const square = generateSquare(i, cellsRow, arrayBombs);
 
         //aggiungo alla griglia il singolo quadrato generato
         grid.appendChild(square);
@@ -46,12 +52,18 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
             //al quadrato cliccato aggiungo la classe
             this.classList.add('checked');
             
+            count++;
+
             //controllo se il numero della cella è presente nell'array delle bombe
             if(arrayBombs.includes(parseInt(this.innerText))){
                 this.classList.add('checked-bomb');
-                
+
                 //blocco eventi per altre celle nella griglie
                 grid.classList.add('event-none');
+
+                alert(`Hai perso! Hai totalizzato ${count} punti!`);
+
+                revealBombs(totalBombs);
             }
         })
     }
@@ -80,7 +92,7 @@ function createBombsArray(min, max){
 }
 
 //creo il singolo quadrato
-function generateSquare(num, cellsRow){
+function generateSquare(num, cellsRow, arrayBombs){
     const element = document.createElement('div');
 
     element.classList.add('square');
@@ -94,7 +106,21 @@ function generateSquare(num, cellsRow){
 
     element.innerText = num;
 
+    //assegno alla cella il nome mine se il numero è presente nell'array delle bombe
+    for(let i = 0; i < arrayBombs.length; i++){
+        if(element.innerText == arrayBombs[i]){
+            element.setAttribute('name', 'bomb');
+        }
+    }
+
     return element;
+}
+
+//rivelo tutte le celle bomba
+function revealBombs(totalBombs){
+    for(let i = 0; i < totalBombs.length; i++){
+        totalBombs[i].classList.add('checked-bomb');
+    }
 }
 
 //fine funzioni
