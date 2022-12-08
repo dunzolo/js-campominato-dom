@@ -76,6 +76,14 @@ main{
     background-color: aqua;
 }
 
+.checked-bomb{
+    background-color: red;
+}
+
+.event-none{
+    pointer-events: none;
+}
+
 footer{
     height: 50px;
     width: 100%;

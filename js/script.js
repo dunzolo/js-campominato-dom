@@ -23,11 +23,11 @@ function createNewGame(){
     arrayBombs = createBombsArray(1, cellsNumber);
     console.log(arrayBombs);
 
-    generateGrid(cellsNumber, cellsRow);
+    generateGrid(arrayBombs, cellsNumber, cellsRow);
 }
 
 //creo la griglia dinamica
-function generateGrid(cellsNumber, cellsRow){
+function generateGrid(arrayBombs, cellsNumber, cellsRow){
 
     //se è già presente un contenitore, lo cancello
     container.innerHTML = "";
@@ -45,6 +45,14 @@ function generateGrid(cellsNumber, cellsRow){
         square.addEventListener('click', function(){
             //al quadrato cliccato aggiungo la classe
             this.classList.add('checked');
+            
+            //controllo se il numero della cella è presente nell'array delle bombe
+            if(arrayBombs.includes(parseInt(this.innerText))){
+                this.classList.add('checked-bomb');
+                
+                //blocco eventi per altre celle nella griglie
+                grid.classList.add('event-none');
+            }
         })
     }
 
