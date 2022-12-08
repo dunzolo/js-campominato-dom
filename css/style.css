@@ -72,23 +72,8 @@ main{
     justify-content: center;
 }
 
-.square-100{
-    width: calc(100% / 10);
-    height: calc(100% / 10);
-}
-
-.square-81{
-    width: calc(100% / 9);
-    height: calc(100% / 9);
-}
-
-.square-49{
-    width: calc(100% / 7);
-    height: calc(100% / 7);
-}
-
 .checked{
-    background-color: red;
+    background-color: aqua;
 }
 
 footer{

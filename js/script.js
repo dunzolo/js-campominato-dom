@@ -36,6 +36,10 @@ function generateGrid(cellsNumber, cellsRow){
 
         //aggiungo alla griglia il singolo quadrato generato
         grid.appendChild(square);
+
+        square.addEventListener('click', function(){
+            this.classList.add('checked');
+        })
     }
 
     //aggiungo al container la griglia generata
