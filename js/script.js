@@ -1,10 +1,60 @@
 // inizio funzioni
 
-//creo il tag div con relativa classe
-function generateSquare(num){
+//creo una nuova partita
+function createNewGame(){
+    let cellsNumber;
+    let cellsRow;
+
+    if(difficulty.value == 'Facile'){
+        cellsNumber = 100;
+        cellsRow = 10;
+    }
+    else if(difficulty.value == 'Media'){
+        cellsNumber = 81;
+        cellsRow = 9;
+    }
+    else{
+        cellsNumber = 49;
+        cellsRow = 7;
+    }
+
+    generateGrid(cellsNumber, cellsRow);
+}
+
+//creo la griglia dinamica
+function generateGrid(cellsNumber, cellsRow){
+
+    //se è già presente un contenitore, lo cancello
+    container.innerHTML = "";
+
+    const grid = document.createElement('div');
+
+    grid.classList.add('grid');
+
+    for(let i = 1; i <= cellsNumber; i++){
+        const square = generateSquare(i, cellsRow);
+
+        //aggiungo alla griglia il singolo quadrato generato
+        grid.appendChild(square);
+    }
+
+    //aggiungo al container la griglia generata
+    container.appendChild(grid);
+
+}
+
+//creo il singolo quadrato
+function generateSquare(num, cellsRow){
     const element = document.createElement('div');
 
     element.classList.add('square');
+
+    //calcolo dinamico in base al numero di celle
+    let square_length = `calc(100% / ${cellsRow})`;
+
+    //assegno al singolo quadrato una dimensione in base al numero di celle per riga
+    element.style.width = square_length;
+    element.style.height = square_length;
 
     element.innerText = num;
 
@@ -13,7 +63,7 @@ function generateSquare(num){
 
 //fine funzioni
 
-let grid = document.getElementById('grid');
+let container = document.querySelector('.container');
 
 let button = document.getElementById('play');
 
@@ -21,68 +71,7 @@ let difficulty = document.getElementById('difficulty');
 
 button.addEventListener('click', function(){
 
-    //se è presente la griglia, la cancella
-    if(grid){
-        grid.innerHTML="";
-    }
-
-    if(difficulty[0].selected){
-        // creo un ciclo for per aggiungere le caselle all'interno della griglia
-        for(let i = 1; i <= 100; i++){
-        
-            // assegno alla variabile, l'elemento generato dalla funzione
-            let square = generateSquare(i);
-        
-            square.classList.add('square-100');
-
-            square.addEventListener('click',function(){
-                this.classList.add('checked');
-                
-                console.log(`La casella selezionata contiene il numero: ${this.innerText}`);
-            });
-            
-            // aggiungo gli elementi alla griglia in HTML
-            grid.appendChild(square);
-        }
-    }
-    else if(difficulty[1].selected){
-        // creo un ciclo for per aggiungere le caselle all'interno della griglia
-        for(let i = 1; i <= 81; i++){
-        
-            // assegno alla variabile, l'elemento generato dalla funzione
-            let square = generateSquare(i);
-        
-            square.classList.add('square-81');
-
-            square.addEventListener('click',function(){
-                this.classList.add('checked');
-                
-                console.log(`La casella selezionata contiene il numero: ${this.innerText}`);
-            });
-            
-            // aggiungo gli elementi alla griglia in HTML
-            grid.appendChild(square);
-        }
-    }
-    else{
-        // creo un ciclo for per aggiungere le caselle all'interno della griglia
-        for(let i = 1; i <= 49; i++){
-        
-            // assegno alla variabile, l'elemento generato dalla funzione
-            let square = generateSquare(i);
-        
-            square.classList.add('square-49');
-
-            square.addEventListener('click',function(){
-                this.classList.add('checked');
-                
-                console.log(`La casella selezionata contiene il numero: ${this.innerText}`);
-            });
-            
-            // aggiungo gli elementi alla griglia in HTML
-            grid.appendChild(square);
-        }
-    }
+    createNewGame();
     
 });
 
