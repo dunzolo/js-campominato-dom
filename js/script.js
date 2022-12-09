@@ -57,25 +57,36 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
             if(arrayBombs.includes(parseInt(this.innerText))){
                 this.classList.add('checked-bomb');
 
+                this.innerHTML = '<img src="./img/bomb-png-transparent-background-19.png"></img>';
+
                 //blocco eventi per altre celle nella griglie
                 grid.classList.add('event-none');
-                
-                alert(`Hai perso! Hai totalizzato ${count} punti!`);
 
-                revealBombs(totalBombs);
+                const box = createAlertMessage(count, square_save);
+
+                box_message.appendChild(box);
+
+                box.addEventListener('click', function(){
+                    box_message.style.display = 'none';
+                    revealBombs(totalBombs);
+                })
             }
             
             count++;
             
             if(count == square_save){
+                const box = createAlertMessage(count, square_save);
+
+                box_message.appendChild(box);
+
+                box.addEventListener('click', function(){
+                    box_message.style.display = 'none';
+                })
+
                 grid.classList.add('event-none');
-                alert('Hai vinto!');
             }
         })
-
-        
     }
-
 
     //aggiungo al container la griglia generata
     container.appendChild(grid);
@@ -125,6 +136,28 @@ function generateSquare(num, cellsRow, arrayBombs){
     return element;
 }
 
+function createAlertMessage(count, square_save){
+    let box_message = document.getElementById('punteggio');
+
+    box_message.style.display = 'block';
+    
+    const box = document.createElement('span');
+    
+    box.classList.add('btn-close');
+    
+    box.innerText = 'X';
+
+    if(count < square_save){
+        box_message.innerHTML = `Hai perso! Hai totalizzato ${count} punti`;
+    }
+    else{
+        box_message.innerHTML = `Hai vinto! Hai totalizzato ${count} punti`;
+        box_message.style.backgroundColor = 'green';
+    }
+
+    return box;
+}
+
 //rivelo tutte le celle bomba
 function revealBombs(totalBombs){
     for(let i = 0; i < totalBombs.length; i++){
@@ -141,9 +174,10 @@ let button = document.getElementById('play');
 
 let difficulty = document.getElementById('difficulty');
 
+let box_message = document.getElementById('box-message');
+
 button.addEventListener('click', function(){
 
     createNewGame();
     
 });
-
