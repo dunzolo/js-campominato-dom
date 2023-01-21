@@ -21,6 +21,7 @@ function createNewGame(){
     }
 
     arrayBombs = createBombsArray(1, cellsNumber);
+    //stampo in console log l'array in ordine crescente
     console.log(arrayBombs.sort(function(a, b){return a-b}));
 
     generateGrid(arrayBombs, cellsNumber, cellsRow);
@@ -71,8 +72,9 @@ function generateGrid(arrayBombs, cellsNumber, cellsRow){
                     revealBombs(totalBombs);
                 })
             }
-            
-            count++;
+            else{
+                count++;
+            }
             
             if(count == square_save){
                 const box = createAlertMessage(count, square_save);
@@ -137,7 +139,7 @@ function generateSquare(num, cellsRow, arrayBombs){
 }
 
 function createAlertMessage(count, square_save){
-    let box_message = document.getElementById('punteggio');
+    let box_message = document.getElementById('box-message');
 
     box_message.style.display = 'block';
     
