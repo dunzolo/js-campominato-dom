@@ -9,3 +9,12 @@
   <summary><b>PREVIEW</b></summary>
   <img src="https://user-images.githubusercontent.com/112269790/226585548-6d99769f-7a2c-483a-8307-e2c1f7599768.gif" alt="campo-minato-preview" width="100%">
 </details>
+
+# ⛏️ Built With
+<div align="left">
+
+|Page structure|Page style|Front-end logic|
+|----|----|----|
+|<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">|<img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">|<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+
+</div>
