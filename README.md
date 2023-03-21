@@ -5,10 +5,8 @@
 <p align="center">
     Simulation of one of the most famous games on Windows: "Prato Fiorito", in this case renamed "Campo Minato"
 </p>
-<details>	
-  <summary><h3>PREVIEW<h3></summary>
+<h3>🎥 PREVIEW<h3>
   <img src="https://user-images.githubusercontent.com/112269790/226585548-6d99769f-7a2c-483a-8307-e2c1f7599768.gif" alt="campo-minato-preview" width="100%">
-</details>
 
 <h3>⛏️ Built With</h3>
 <div align="left">
