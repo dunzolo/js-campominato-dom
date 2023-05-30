@@ -7,6 +7,32 @@
  <img src="https://user-images.githubusercontent.com/112269790/226582247-f6ffbd38-e033-4cc8-9b33-c9bf2f60960d.png" alt="campo-minato-layout" width="80%">
 </p>
 
+<h3>⚙️ Funzionalità:</h3>
+
+<details close>
+<summary><strong>Scelta della difficoltà</strong></summary>
+<ul><li><p>
+    Nella pagina principale sarà possibile selezionare la <strong>difficoltà</strong> del gioco. Selezioanndo di nuovo la difficoltà, il gioco riprenderà dall'inizio
+</p></li></ul>
+</details>
+<details close>
+<summary><strong>Evento al click sulle celle</strong></summary>
+<ul>
+    <li>
+        <p><span>${\color{aqua}Cella \space azzurra:}$</span> il gioco può proseguire</p>
+    </li>
+    <li><p>
+        <span>${\color{red}Cella \space rossa:}$</span> hai trovato la bomba! Il gioco terminerà e visualizzerai il punteggio ottenuto
+    </p></li>
+</ul>
+</details>
+<details close>
+<summary><strong>Responsive</strong></summary>
+<ul><li><p>
+    La Web App è completamente responsive e come si può notare dalle anteprima si può utilizzare su desktop, tablet e mobile
+</p></li></ul>
+</details>
+
 <h3>🎥 Anteprima<h3>
 <img src="https://user-images.githubusercontent.com/112269790/226585548-6d99769f-7a2c-483a-8307-e2c1f7599768.gif" alt="campo-minato-preview" width="100%">
 
