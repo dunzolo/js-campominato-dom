@@ -47,5 +47,5 @@
 
  <hr/>
  <p align="center">
-  <img src="https://img.shields.io/badge/versione-2023--03--21-blue" alt="version"/>
+  <img src="https://img.shields.io/badge/versione-2023--03--21-blue" alt="versione"/>
  </p>
