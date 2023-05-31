@@ -19,10 +19,10 @@
 <summary><strong>Evento al click sulle celle</strong></summary>
 <ul>
     <li>
-        <p><span>${\color{aqua}Cella \space azzurra:}$</span> il gioco può proseguire</p>
+        <p><span>Cella azzurra:</span> il gioco può proseguire</p>
     </li>
     <li><p>
-        <span>${\color{red}Cella \space rossa:}$</span> hai trovato la bomba! Il gioco terminerà e visualizzerai il punteggio ottenuto
+        <span>Cella rossa:</span> hai trovato la bomba! Il gioco terminerà e visualizzerai il punteggio ottenuto
     </p></li>
 </ul>
 </details>
